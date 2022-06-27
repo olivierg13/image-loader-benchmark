@@ -2,8 +2,6 @@ import coil.Library
 import coil.compileSdk
 import coil.minSdk
 import coil.targetSdk
-import coil.versionCode
-import coil.versionName
 import org.jetbrains.kotlin.config.KotlinCompilerVersion
 
 plugins {
@@ -16,10 +14,8 @@ android {
     defaultConfig {
         minSdkVersion(project.minSdk)
         targetSdkVersion(project.targetSdk)
-        versionCode = project.versionCode
-        versionName = project.versionName
         multiDexEnabled = true
-        resConfigs("en")
+        resourceConfigurations += setOf("en")
         testInstrumentationRunner = "androidx.benchmark.junit4.AndroidBenchmarkRunner"
         vectorDrawables.useSupportLibrary = true
     }

@@ -25,7 +25,7 @@ android {
         versionCode = project.versionCode
         versionName = project.versionName
         multiDexEnabled = true
-        resConfigs("en")
+        resourceConfigurations += setOf("en")
         testInstrumentationRunner = "androidx.benchmark.junit4.AndroidBenchmarkRunner"
         vectorDrawables.useSupportLibrary = true
     }

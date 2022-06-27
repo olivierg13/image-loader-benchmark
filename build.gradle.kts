@@ -8,13 +8,12 @@ buildscript {
         google()
         mavenCentral()
         gradlePluginPortal()
-        jcenter()
     }
     dependencies {
-        classpath("androidx.benchmark:benchmark-gradle-plugin:1.0.0")
-        classpath("com.android.tools.build:gradle:4.1.0")
+        classpath("androidx.benchmark:benchmark-gradle-plugin:1.1.0")
+        classpath("com.android.tools.build:gradle:7.2.1")
         classpath("com.slack.keeper:keeper:0.7.0")
-        classpath(kotlin("gradle-plugin", version = "1.4.10"))
+        classpath(kotlin("gradle-plugin", version = "1.7.0"))
     }
 }
 
@@ -22,7 +21,6 @@ allprojects {
     repositories {
         google()
         mavenCentral()
-        jcenter()
     }
 
     tasks.withType<KotlinCompile>().configureEach {
