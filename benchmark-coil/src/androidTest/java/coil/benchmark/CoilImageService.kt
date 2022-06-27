@@ -14,7 +14,6 @@ import kotlinx.coroutines.runBlocking
 class CoilImageService(private val context: Context) : ImageService {
 
     private val imageLoader = ImageLoader.Builder(context)
-        .bitmapPoolingEnabled(false)
         .build()
 
     override fun execute(uri: Uri): Drawable = runBlocking {
