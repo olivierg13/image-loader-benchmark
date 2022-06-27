@@ -38,9 +38,3 @@ mkdir -p results/picasso-2/debug results/picasso-2/release
 find benchmark-picasso-2/build/outputs/connected_android_test_additional_output -type f -print0 | sed 's/ /\\ /g' | xargs sh -c 'cp "$@" "$0"' results/picasso-2/debug
 ./gradlew benchmark-picasso-2:connectedCheck -DenableR8=true
 find benchmark-picasso-2/build/outputs/connected_android_test_additional_output -type f -print0 | sed 's/ /\\ /g' | xargs sh -c 'cp "$@" "$0"' results/picasso-2/release
-
-mkdir -p results/picasso-3/debug results/picasso-3/release
-./gradlew benchmark-picasso-3:connectedCheck
-find benchmark-picasso-3/build/outputs/connected_android_test_additional_output -type f -print0 | sed 's/ /\\ /g' | xargs sh -c 'cp "$@" "$0"' results/picasso-3/debug
-./gradlew benchmark-picasso-3:connectedCheck -DenableR8=true
-find benchmark-picasso-3/build/outputs/connected_android_test_additional_output -type f -print0 | sed 's/ /\\ /g' | xargs sh -c 'cp "$@" "$0"' results/picasso-3/release

@@ -29,7 +29,6 @@ object Library {
     const val GLIDE_OKHTTP = "com.github.bumptech.glide:okhttp3-integration:$GLIDE_VERSION"
 
     const val PICASSO_2 = "com.squareup.picasso:picasso:2.8"
-    const val PICASSO_3 = "com.squareup.picasso:picasso:2.8"
 
     // TEST
 
