@@ -1,10 +1,11 @@
 package coil.benchmark
 
 import android.content.Context
+import android.util.Log
 import androidx.benchmark.junit4.BenchmarkRule
 import androidx.benchmark.junit4.measureRepeated
 import androidx.core.net.toUri
-import kotlin.test.assertEquals
+import java.lang.Exception
 
 // File containing the common benchmark code.
 
@@ -13,7 +14,12 @@ private val IMAGES = arrayOf(
     "image_2.jpg",
     "image_3.jpg",
     "image_4.jpg",
-    "image_5.jpg"
+    "image_5.jpg",
+    "image_6.png",
+    "image_7.png",
+    "image_8.png",
+    "image_9.png",
+    "image_10.png",
 )
 
 fun benchmarkFileUriGet(
@@ -25,10 +31,11 @@ fun benchmarkFileUriGet(
         createFileUris(context, *IMAGES)
     }
     uris.forEach { uri ->
-        val drawable = service.execute(uri)
-        runWithTimingDisabled {
-            // Ensure the drawable was loaded at original size.
-            assertEquals(1080, drawable.intrinsicWidth)
+        try {
+            service.execute(uri)
+        } catch (e: Exception) {
+            Log.e("Benchmark", "Failed for $uri with $e")
+            throw e
         }
     }
 }
@@ -43,10 +50,11 @@ fun benchmarkNetworkUriGet(
     }
     mockWebServer.use { server ->
         IMAGES.forEach { image ->
-            val drawable = service.execute(server.url(image).toString().toUri())
-            runWithTimingDisabled {
-                // Ensure the drawable was loaded at original size.
-                assertEquals(1080, drawable.intrinsicWidth)
+            try {
+                service.execute(server.url(image).toString().toUri())
+            } catch (e: Exception) {
+                Log.e("Benchmark", "Failed for $image with $e")
+                throw e
             }
         }
     }
